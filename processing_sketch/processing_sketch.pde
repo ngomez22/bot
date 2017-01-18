@@ -5,16 +5,18 @@ void setup() {
   println(thought);
   
   //Load example image
-  PImage pic = loadImage("example-files/pic.jpg");
+  PImage pic = loadImage("example-files/pic1.jpg");
   
-  size(640, 360);
-  background(200);
+  size(640, 480);
+  
+  image(pic, 0, 0, width, height);
+  //Paint random colored circle
   float r = random(255);
   float g = random(255);
   float b = random(255);
   noStroke();
   fill(r,g,b,100);
-  ellipse(320, 180, 100, 100);
+  ellipse(width/2, height/2, 100, 100);
   
   //Save the drawing and exit the sketch
   save("output.png");
