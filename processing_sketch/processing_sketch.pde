@@ -1,8 +1,11 @@
 void setup() {
-  //Load example image and text
+  //Load example thought
   String[] text = loadStrings("example-files/thought.txt");
   String thought = join(text);
   println(thought);
+  
+  //Load example image
+  PImage pic = loadImage("example-files/pic.jpg");
   
   size(640, 360);
   background(200);
