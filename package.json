@@ -1,0 +1,26 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "Simple bot that uses the twitter and reddit APIs to post images made with processing",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngomez22/bot.git"
+  },
+  "keywords": [
+    "twitter",
+    "reddit",
+    "api",
+    "processing",
+    "bot"
+  ],
+  "author": "Nicolas Gomez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngomez22/bot/issues"
+  },
+  "homepage": "https://github.com/ngomez22/bot#readme"
+}
