@@ -4,5 +4,5 @@ var exec = require('child_process').exec;
 exec(cmd, done);
 
 function done() {
-  console.log("done");
+    console.log("done");
 }
