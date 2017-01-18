@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ngomez22/bot/issues"
   },
-  "homepage": "https://github.com/ngomez22/bot#readme"
+  "homepage": "https://github.com/ngomez22/bot#readme",
+  "dependencies": {
+    "twit": "^2.2.5"
+  }
 }
