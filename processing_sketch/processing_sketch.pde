@@ -8,17 +8,12 @@ void setup() {
   println(thought);
   
   //Load example image
-  PImage pic = loadImage("example-files/pic1.jpg");
+  PImage pic = loadImage("example-files/pic.jpg");
   pic.resize(width, height);
   image(pic, 0, 0, width, height);
   
-  //Draw a random colored circle
-  float r = random(255);
-  float g = random(255);
-  float b = random(255);
-  noStroke();
-  fill(r, g, b, 70);
-  ellipse(width/2, height/2, 100, 100);
+  //Draw a random colored rectangle
+  //rectangle();
   
   //Draw the text
   PFont font = createFont("Impact", 32);
@@ -45,7 +40,7 @@ String format(String raw) {
    String[] words = raw.split(" ");
    float currChars = 0;
    for(int i=0; i<words.length; i++) {
-     if(currChars + words[i].length() < 30){
+     if(currChars + words[i].length() < 35){
        result += words[i] + " ";
        currChars +=  words[i].length();
      } else {
@@ -55,4 +50,13 @@ String format(String raw) {
      }
    }
    return result;
+}
+
+void rectangle() {
+  float r = random(255);
+  float g = random(255);
+  float b = random(255);
+  noStroke();
+  fill(255, 70);
+  rect((width/2)-290, (height/2)-100, 580, 200); 
 }
