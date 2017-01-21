@@ -24,7 +24,7 @@ void setup() {
   
   //Save the drawing and exit the sketch
   save("output.png");
-  //exit();
+  exit();
 }
 
 String join(String[] lines) {
