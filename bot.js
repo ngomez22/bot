@@ -1,15 +1,12 @@
 //Dependencies
 var Twit = require('twit');
+var twitterConfig = require('./config/twitter');
+var redditConfig = require('./config/reddit');
 var Snoocore = require('snoocore');
 var exec = require('child_process').exec;
 
 //Setup
-var T = new Twit({
-    consumer_key: '	hdkkvciYD5JMV7hvSs1ZGMr4s',
-    consumer_secret: '1pia0nNwRDVTu653TIp5bp4jkWU9NLqKWJbSiAbTXVyFuBOIiC',
-    access_token: '821913261322989569-pJeUtUtGWzMMdVdkiY4RXSaYvcBntSz',
-    access_token_secret: 'qZ6TX9Cdn7iY3momOFKNDZEUfivkIsTydfI9S9Mr4xySU',
-});
+var T = new Twit(twitterConfig);
 
 var reddit = new Snoocore({
     // Unique string identifying the app
@@ -34,5 +31,5 @@ var cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Do
 exec(cmd, done);
 
 function done() {
-    console.log("done");
+    console.log("Image generated.");
 }
