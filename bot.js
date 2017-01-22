@@ -7,18 +7,23 @@ var exec = require('child_process').exec;
 
 //Setup
 var T = new Twit(twitterConfig);
+var R = new Snoocore(redditConfig);
 
-var reddit = new Snoocore(redditConfig);
+function tweet() {
+  //Find best /r/earthporn post
 
+  //Find best /r/showerthoughts post
 
-var cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
+  //Generate image to be posted
+  var cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
+  exec(cmd, function() {
+    console.log("Image succesfully generated.");
+  });
 
-exec(cmd, done);
+  //Post image on Twitter
 
-function done() {
-    console.log("Image generated.");
 }
 
-reddit('/api/v1/me').get().then(function(result) {
-  console.log(result); 
+R('/api/v1/me').get().then(function(result) {
+  console.log(result);
 });
