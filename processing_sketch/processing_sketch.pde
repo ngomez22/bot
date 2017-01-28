@@ -1,27 +1,26 @@
 void setup() {
-  
   size(640, 480);
-  
-  //Load example thought
+
+  //Load example thought,
   String[] text = loadStrings("example-files/thought.txt");
   String thought = format(join(text));
   println(thought);
-  
+
   //Load example image
   PImage pic = loadImage("example-files/pic.jpg");
   pic.resize(width, height);
   image(pic, 0, 0, width, height);
-  
+
   //Draw a random colored rectangle
   //rectangle();
-  
+
   //Draw the text
   PFont font = createFont("Impact", 32);
   fill(0);
   textFont(font);
   textAlign(CENTER, CENTER);
   text(thought, width/2, height/2);
-  
+
   //Save the drawing and exit the sketch
   save("output.png");
   exit();
@@ -30,7 +29,7 @@ void setup() {
 String join(String[] lines) {
    String result = "";
    for(int i=0; i<lines.length; i++) {
-      result += lines[i] + " "; 
+      result += lines[i] + " ";
    }
     return result;
 }
@@ -58,5 +57,5 @@ void rectangle() {
   float b = random(255);
   noStroke();
   fill(255, 70);
-  rect((width/2)-290, (height/2)-100, 580, 200); 
+  rect((width/2)-290, (height/2)-100, 580, 200);
 }
