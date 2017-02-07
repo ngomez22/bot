@@ -11,21 +11,29 @@ var T = new Twit(twitterConfig);
 var R = new Snoocore(redditConfig);
 
 function tweet() {
-  //Find best /r/earthporn post
+  //Find best /r/showerthoughts post
   R('/r/showerthoughts/top/?sort=top&t=day').listing().then(function(posts) {
-    console.log(posts.children[0].data.title);
+    console.log("thought: " + posts.children[0].data.title);
     return posts.children[0].data.title
   }).then(function(thought) {
     //Save the thought to the text file
   });
 
-  //Find best /r/showerthoughts post
+  //Find best /r/earthporn post
+  R('/r/earthporn/top/?sort=top&t=day').listing().then(function(posts) {
+    console.log("pic: " + posts.children[0].data.url);
+    return posts.children[0].data.url
+  }).then(function(pic) {
+    //Save the picture
+  });
 
   //Generate image to be posted
-  var cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
+  const cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
   exec(cmd, function(error, stdout, stderr) {
     //Handle any possible errors
 
     //Post on twitter
   });
 }
+
+tweet();
