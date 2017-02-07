@@ -39,5 +39,10 @@ jspm_packages
 # Output image from processing sketch
 processing_sketch/output.png
 
+# Build outputs from processing sketch
+processing_sketch/build
+
 # Twitter and Reddit config files
 config/*
+
+# Processing build files
