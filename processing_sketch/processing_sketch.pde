@@ -13,7 +13,7 @@ void setup() {
 
   //Draw the text
   PFont font = createFont("Impact", 32);
-  fill(0);
+  fill(255);
   textFont(font);
   textAlign(CENTER, CENTER);
   text(thought, width/2, height/2);
@@ -46,13 +46,4 @@ String format(String raw) {
      }
    }
    return result;
-}
-
-void rectangle() {
-  float r = random(255);
-  float g = random(255);
-  float b = random(255);
-  noStroke();
-  fill(255, 70);
-  rect((width/2)-290, (height/2)-100, 580, 200);
 }
