@@ -35,7 +35,7 @@ function tweet() {
     downloadPic(pic, "./processing_sketch/example-files/pic.jpg", function() {
       //Generate image to be posted
       const cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
-      exec(cmd, function(error, stdout, stderr) {
+      exec(cmd, function(err, stdout, stderr) {
         //Handle any possible errors
 
         //Post on twitter
@@ -50,7 +50,7 @@ function tweet() {
           var mediaId = data.media_id_string;
           // Post tweet
           T.post('statuses/update', {
-            status: '#randomwalk',
+            status: new Date(),
             media_ids: [mediaId]
           }, function(err, data, response) {
             if (err) {
