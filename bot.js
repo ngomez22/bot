@@ -39,6 +39,27 @@ function tweet() {
         //Handle any possible errors
 
         //Post on twitter
+        var b64pic = fs.readFileSync('./processing_sketch/output.png', {
+          encoding: 'base64'
+        })
+
+        T.post('media/upload', {
+          media_data: b64pic
+        }, function(err, data, response) {
+          // Retrieve uploaded's picture media id string
+          var mediaId = data.media_id_string;
+          // Post tweet
+          T.post('statuses/update', {
+            status: '#randomwalk',
+            media_ids: [mediaId]
+          }, function(err, data, response) {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("Tweeted! - " + data.text);
+            }
+          });
+        });
       });
     })
   });
