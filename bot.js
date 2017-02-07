@@ -12,6 +12,12 @@ var R = new Snoocore(redditConfig);
 
 function tweet() {
   //Find best /r/earthporn post
+  R('/r/showerthoughts/top/?sort=top&t=day').listing().then(function(posts) {
+    console.log(posts.children[0].data.title);
+    return posts.children[0].data.title
+  }).then(function(thought) {
+    //Save the thought to the text file
+  });
 
   //Find best /r/showerthoughts post
 
@@ -23,7 +29,3 @@ function tweet() {
     //Post on twitter
   });
 }
-
-R('/api/v1/me').get().then(function(result) {
-  console.log(result);
-});
