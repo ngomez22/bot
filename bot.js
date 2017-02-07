@@ -4,6 +4,7 @@ var twitterConfig = require('./config/twitter');
 var redditConfig = require('./config/reddit');
 var Snoocore = require('snoocore');
 var exec = require('child_process').exec;
+var fs = require('fs');
 
 //Setup
 var T = new Twit(twitterConfig);
@@ -21,13 +22,8 @@ function tweet() {
 
     //Post on twitter
   });
-
-
 }
 
 R('/api/v1/me').get().then(function(result) {
   console.log(result);
 });
-
-
-//C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run "https://image.freepik.com/free-vector/sketchy-earth_23-2147506464.jpg" "Hola"

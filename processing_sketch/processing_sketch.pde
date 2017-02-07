@@ -11,9 +11,6 @@ void setup() {
   pic.resize(width, height);
   image(pic, 0, 0, width, height);
 
-  //Draw a random colored rectangle
-  //rectangle();
-
   //Draw the text
   PFont font = createFont("Impact", 32);
   fill(0);
