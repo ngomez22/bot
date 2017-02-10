@@ -28,8 +28,13 @@ function tweet() {
 
   //Find best /r/earthporn post
   R('/r/earthporn/top/?sort=top&t=day').listing().then(function(posts) {
-    console.log("Pic: " + posts.children[0].data.url);
-    return posts.children[0].data.url.replace(/amp;/g, "");
+    var url = posts.children[0].data.url;
+    if (url.includes("imgur")) {
+      url = url + ".jpg";
+    }
+    url.replace(/amp;/g, "");
+    console.log("Pic: " + url);
+    return url;
   }).then(function(pic) {
     //Save the picture
     downloadPic(pic, "./processing_sketch/example-files/pic.jpg", function() {
