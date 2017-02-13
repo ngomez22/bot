@@ -13,7 +13,7 @@ void setup() {
 
   //Draw the text
   PFont font = createFont("Impact", 32);
-  fill(255);
+  fill(255, 199, 0);
   textFont(font);
   textAlign(CENTER, CENTER);
   text(thought, width/2, height/2);
