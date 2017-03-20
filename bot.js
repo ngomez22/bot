@@ -1,4 +1,5 @@
 //Dependencies
+var CronJob = require('cron').CronJob;
 var Twit = require('twit');
 var twitterConfig = require('./config/twitter');
 var redditConfig = require('./config/reddit');
@@ -79,4 +80,6 @@ function downloadPic(uri, filename, callback) {
   });
 };
 
-tweet();
+new CronJob('0 0 12 * * *', tweet, function() {
+  console.log('DONE RUNNING -- Twitter bot will now die');
+}, true);
