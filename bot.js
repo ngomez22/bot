@@ -18,7 +18,7 @@ function tweet() {
     return posts.children[0].data.title
   }).then(function(thought) {
     //Save the thought to the text file
-    fs.writeFile("./processing_sketch/example-files/thought.txt", thought, function(err) {
+    fs.writeFile("./processing_sketch/files/thought.txt", thought, function(err) {
       if (err) {
         return console.log(err);
       }
@@ -37,7 +37,7 @@ function tweet() {
     return url;
   }).then(function(pic) {
     //Save the picture
-    downloadPic(pic, "./processing_sketch/example-files/pic.jpg", function() {
+    downloadPic(pic, "./processing_sketch/files/pic.jpg", function() {
       //Generate image to be posted
       console.log("Succesfully saved image");
       const cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
