@@ -59,7 +59,7 @@ function tweet() {
           var mediaId = data.media_id_string;
           // Post tweet
           T.post('statuses/update', {
-            status: new Date(),
+            status: formatDate(new Date()),
             media_ids: [mediaId]
           }, function(err, data, response) {
             if (err) {
@@ -79,6 +79,22 @@ function downloadPic(uri, filename, callback) {
     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 };
+
+function formatDate(date) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
+
 
 new CronJob('0 0 12 * * *', tweet, function() {
   console.log('DONE RUNNING -- Twitter bot will now die');
