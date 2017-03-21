@@ -2,12 +2,12 @@ void setup() {
   size(640, 480);
 
   //Load example thought,
-  String[] text = loadStrings("example-files/thought.txt");
+  String[] text = loadStrings("files/thought.txt");
   String thought = format(join(text));
   println(thought);
 
   //Load example image
-  PImage pic = loadImage("example-files/pic.jpg");
+  PImage pic = loadImage("files/pic.jpg");
   pic.resize(width, height);
   image(pic, 0, 0, width, height);
 

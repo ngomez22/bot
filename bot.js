@@ -1,4 +1,5 @@
 //Dependencies
+var CronJob = require('cron').CronJob;
 var Twit = require('twit');
 var twitterConfig = require('./config/twitter');
 var redditConfig = require('./config/reddit');
@@ -18,7 +19,7 @@ function tweet() {
     return posts.children[0].data.title
   }).then(function(thought) {
     //Save the thought to the text file
-    fs.writeFile("./processing_sketch/example-files/thought.txt", thought, function(err) {
+    fs.writeFile("./processing_sketch/files/thought.txt", thought, function(err) {
       if (err) {
         return console.log(err);
       }
@@ -37,7 +38,7 @@ function tweet() {
     return url;
   }).then(function(pic) {
     //Save the picture
-    downloadPic(pic, "./processing_sketch/example-files/pic.jpg", function() {
+    downloadPic(pic, "./processing_sketch/files/pic.jpg", function() {
       //Generate image to be posted
       console.log("Succesfully saved image");
       const cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
@@ -58,7 +59,7 @@ function tweet() {
           var mediaId = data.media_id_string;
           // Post tweet
           T.post('statuses/update', {
-            status: new Date(),
+            status: formatDate(new Date()),
             media_ids: [mediaId]
           }, function(err, data, response) {
             if (err) {
@@ -79,4 +80,22 @@ function downloadPic(uri, filename, callback) {
   });
 };
 
-tweet();
+function formatDate(date) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
+
+
+new CronJob('0 0 12 * * *', tweet, function() {
+  console.log('DONE RUNNING -- Twitter bot will now die');
+}, true);
