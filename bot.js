@@ -41,7 +41,7 @@ function tweet() {
     downloadPic(pic, "./processing_sketch/files/pic.jpg", function() {
       //Generate image to be posted
       console.log("Succesfully saved image");
-      const cmd = "C:/processing-3.2.3/processing-java.exe --sketch=C:/Users/Nicolás/Documents/bot/processing_sketch --run";
+      const cmd = "DISPLAY=:0 ~/processing-3.3/processing-java --sketch=/home/pi/projects/earthoughts/processing_sketch --present";
       exec(cmd, function(err, stdout, stderr) {
         //Handle any possible errors
         if (err) {
